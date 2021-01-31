@@ -143,7 +143,7 @@ export default class Table extends Component
     let sharesFixed = shares;
     for (sharesFixed; sharesFixed * price > cash;
       sharesFixed = (sharesFixed - decrement).toFixed(sigFigs)) {
-      // empty body...
+      // empty body... the for loop already does the work
     }
 
     return sharesFixed;
