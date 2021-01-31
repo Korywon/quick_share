@@ -102,7 +102,7 @@ export default class Table extends Component
     // This basically restricts us from producing a predetermined number of
     // results in order to prevent slow performance or even freezing.
     //
-    if (upperLimit - lowerLimit / step > this.resultsLimit) {
+    if ((upperLimit - lowerLimit) / step > this.resultsLimit) {
       newValidity.validLowerLimit = false;
       newValidity.validUpperLimit = false;
       newValidity.step = false;
