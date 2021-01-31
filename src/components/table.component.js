@@ -23,7 +23,7 @@ export default class Table extends Component
 
   /**
    * Appends a message to the errorMessage.
-   * @param {*} message 
+   * @param {*} message
    */
   appendToErrorMessage (message) {
     this.errorMessage = this.errorMessage + " " + message;
@@ -32,11 +32,11 @@ export default class Table extends Component
   /**
    * Validates the inputs and reassigns the validity object.
    *
-   * @param {*} cash 
-   * @param {*} lowerLimit 
-   * @param {*} upperLimit 
-   * @param {*} step 
-   * @param {*} sigFigs 
+   * @param {*} cash
+   * @param {*} lowerLimit
+   * @param {*} upperLimit
+   * @param {*} step
+   * @param {*} sigFigs
    */
   validateInput (cash, lowerLimit, upperLimit, step, sigFigs)
   {
@@ -116,7 +116,7 @@ export default class Table extends Component
    * Normalizes the significant figures. Money is usually represented with two
    * decimal places.
    *
-   * @param {*} sigFigs 
+   * @param {*} sigFigs
    */
   getNormalizedSigFigs (sigFigs) { return sigFigs < 2 ? 2 : sigFigs; }
 
@@ -126,9 +126,9 @@ export default class Table extends Component
    * hand. This function adjusts the price based on the significant figures we
    * are looking to aim for.
    *
-   * @param {*} cash 
-   * @param {*} price 
-   * @param {*} sigFigs 
+   * @param {*} cash
+   * @param {*} price
+   * @param {*} sigFigs
    */
   getFixedShares(cash, price, sigFigs)
   {
@@ -226,7 +226,7 @@ export default class Table extends Component
 
         return(
           <p key={'share' + index} className={`${className} Smaller-text`}>
-            {object.shares} shares @ {object.price} (total: {object.total})
+            {object.shares} shares @ {object.price} (total: ${object.total})
           </p>
         );
       });
