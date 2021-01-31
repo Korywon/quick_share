@@ -21,16 +21,26 @@ export default class Controller extends Component
       rawSigFigs: '1'
     };
 
+    //
+    // Bind handler functions to the class.
+    //
     this.handleChangeFloat = this.handleChangeFloat.bind(this);
     this.handleChangeInt = this.handleChangeInt.bind(this);
   }
 
+  /**
+   * Change handler that parses float string values.
+   * @param {*} event
+   */
   handleChangeFloat(event)
   {
     const rawValue = event.target.value;
     const name = event.target.name;
     const rawName = 'raw' + name.charAt(0).toUpperCase() + name.slice(1);
 
+    //
+    // If blank, we set the value to zero and the raw name to blank.
+    //
     if (rawValue === '') {
       this.setState({
         [name]: 0,
@@ -38,6 +48,10 @@ export default class Controller extends Component
       });
     } else {
       const value = parseFloat(rawValue);
+
+      //
+      // Check if the value is actually a number.
+      //
       if (!isNaN(rawValue) && !isNaN(value)) {
         this.setState({
           [name]: value,
@@ -47,12 +61,19 @@ export default class Controller extends Component
     }
   }
 
+  /**
+   * Change handler that parses integer string values.
+   * @param {*} event
+   */
   handleChangeInt(event)
   {
     const rawValue = event.target.value;
     const name = event.target.name;
     const rawName = 'raw' + name.charAt(0).toUpperCase() + name.slice(1);
 
+    //
+    // If blank, we set the value to zero and the raw name to blank.
+    //
     if (rawValue === '') {
       this.setState({
         [name]: 0,
@@ -60,6 +81,10 @@ export default class Controller extends Component
       });
     } else {
       const value = parseInt(rawValue, 10);
+
+      //
+      // Check if the value is actually a number and is an integer.
+      //
       if (!isNaN(rawValue) && !isNaN(value) &&
         value.toString(10) === rawValue) {
         this.setState({
